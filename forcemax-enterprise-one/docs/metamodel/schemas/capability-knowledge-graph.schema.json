@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://autonomaz.ai/schemas/forcemax/capability-knowledge-graph.v1.0.0.schema.json",
+  "title": "ForceMax Capability Knowledge Graph",
+  "type": "object",
+  "required": [
+    "metadata",
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "version",
+        "nodeCount",
+        "edgeCount",
+        "industryCount"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "sourceKnowledgeBaseVersion": {
+          "type": "string"
+        },
+        "nodeCount": {
+          "type": "integer"
+        },
+        "edgeCount": {
+          "type": "integer"
+        },
+        "industryCount": {
+          "type": "integer",
+          "const": 61
+        },
+        "relationshipPolicy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "nodeType",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nodeType": {
+            "enum": [
+              "Industry",
+              "Capability"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "layer": {
+            "enum": [
+              "universal",
+              "industry"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "sourceId",
+          "targetId",
+          "relationshipType",
+          "lifecycleState",
+          "provenance"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sourceId": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "relationshipType": {
+            "type": "string"
+          },
+          "lifecycleState": {
+            "type": "string"
+          },
+          "applicabilityState": {
+            "enum": [
+              "universal",
+              "contextualized",
+              "conditional",
+              "not-applicable",
+              "unassessed"
+            ]
+          },
+          "provenance": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -20,3 +20,15 @@ The governed baseline contains **61 industries (IND-001–IND-061)**, **15 unive
 - [Normalized L1–L3 capability catalog CSV](knowledge-base/capability-catalog.v1.0.0.csv)
 
 **Governance note:** These are draft reference models. The imported Explorer contains generic repeated L2/L3 operating-pattern branches, which are flagged for industry SME validation and substantive refinement. The authoritative 61-category taxonomy ends with Wealth Management; the extra Wholesale entry in the later 62-entry Explorer is excluded.
+
+## Capability Intelligence Engine and Knowledge Graph
+
+The capability catalogue is now seeded into a typed graph. The graph contains 5,728 nodes and 5,652 source-derived edges. Its 61 industry nodes, 295 universal capability nodes and 5,372 industry capability nodes retain stable IDs and provenance.
+
+- [Capability Intelligence Engine specification](docs/architecture/capability-intelligence-engine-v1.0.0.md)
+- [Capability Knowledge Graph JSON](knowledge-base/capability-knowledge-graph.v1.0.0.json)
+- [Graph JSON Schema](docs/metamodel/schemas/capability-knowledge-graph.schema.json)
+- [Relationship vocabulary](knowledge-base/relationship-vocabulary.v1.0.0.md)
+- [Graph seed validation report](knowledge-base/GRAPH-SEED-VALIDATION-v1.0.0.md)
+
+Only hierarchy and industry applicability edges are seeded. Applicability remains **unassessed**; semantic equivalence, dependencies, specialization and factory-realization relationships require evidence and review. The engine specification defines search, graph traversal, enterprise composition, traceability, assessment and governance APIs.

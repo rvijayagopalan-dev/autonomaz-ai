@@ -21,3 +21,7 @@ No build step or external dependencies are required. Open the HTML file directly
 ## Product direction
 
 The intended platform includes a public digital experience, multi-tenant client control plane, factory blueprint registry, provisioning orchestrator, isolated factory execution environments, governance and AgentOps.
+
+## Enterprise One product blueprint
+
+The ForceMax Enterprise One product specification and implementation blueprint is available at [`docs/enterprise-one/PRODUCT-SPECIFICATION-AND-IMPLEMENTATION-BLUEPRINT-v1.0.md`](docs/enterprise-one/PRODUCT-SPECIFICATION-AND-IMPLEMENTATION-BLUEPRINT-v1.0.md). It defines the product vision, capability model, workspaces, target architecture, domain model, data and API contracts, factory and agent execution, security, GCP-first deployment, roadmap, backlog and acceptance criteria.

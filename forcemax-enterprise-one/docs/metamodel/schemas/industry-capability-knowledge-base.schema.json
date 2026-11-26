@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://autonomaz.ai/schemas/forcemax/industry-capability-knowledge-base.v1.0.0.schema.json",
+  "title": "ForceMax Enterprise One Industry Capability Knowledge Base",
+  "type": "object",
+  "required": [
+    "metadata",
+    "universalCapabilities",
+    "industries"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "version",
+        "ontologyNamespace",
+        "industryCount",
+        "status"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "ontologyNamespace": {
+          "type": "string",
+          "format": "uri"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "source": {
+          "type": "string"
+        },
+        "industryCount": {
+          "type": "integer",
+          "const": 61
+        },
+        "universalL1Count": {
+          "type": "integer",
+          "const": 15
+        },
+        "status": {
+          "type": "string"
+        },
+        "modelingCaveat": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "universalCapabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/capabilityL1"
+      }
+    },
+    "industries": {
+      "type": "array",
+      "minItems": 61,
+      "maxItems": 61,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "classificationType",
+          "lifecycleState",
+          "capabilities",
+          "modelQuality"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^IND-[0-9]{3}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "classificationType": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "lifecycleState": {
+            "type": "string",
+            "enum": [
+              "proposed",
+              "draft",
+              "in-review",
+              "accepted",
+              "deprecated",
+              "superseded"
+            ]
+          },
+          "sourceStatus": {
+            "type": "string"
+          },
+          "sourceIndustryNumber": {
+            "type": "integer"
+          },
+          "modelQuality": {
+            "type": "object"
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/capabilityL1"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "$defs": {
+    "capabilityL1": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "level",
+        "capabilities"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "level": {
+          "const": 1
+        },
+        "layer": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/capabilityL2"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "capabilityL2": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "level",
+        "capabilities"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "level": {
+          "const": 2
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/capabilityL3"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "capabilityL3": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "level"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "level": {
+          "const": 3
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
